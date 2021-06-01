@@ -7,6 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log('NODE_ENV', process.env.NODE_ENV);
     return this.appService.getHello();
   }
 }
