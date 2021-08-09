@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EducationController } from './education.controller';
-import { EducationService } from '../services/education.service';
+import { EducationService } from '../services';
 import { EducationServiceStub } from "../services/education.service.stub";
 import { EducationStub } from "../testing";
 
@@ -24,9 +24,9 @@ describe('EducationController', () => {
   });
 
   it('should return education', async () => {
-    jest.spyOn(EducationServiceStub.prototype, 'findAll').mockResolvedValue(EducationStub.getDtos())
+    jest.spyOn(EducationServiceStub.prototype, 'findAll').mockResolvedValue(EducationStub.getEntities())
     const response = await controller.findAll();
-    expect(response[0].id).toEqual(EducationStub.getDto().id);
+    expect(response[0].id).toEqual(EducationStub.getEntity().id);
   });
 
 });

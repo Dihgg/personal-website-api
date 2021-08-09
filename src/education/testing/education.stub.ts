@@ -1,5 +1,4 @@
 import { Education } from "../entities";
-import { EducationDto } from "../dto";
 
 export class EducationStub {
 
@@ -15,13 +14,5 @@ export class EducationStub {
 
   static getEntities(n: number = 1): Education[] {
     return Array<Education>(n).fill(this.getEntity());
-  }
-
-  static getDto(): EducationDto {
-    return <EducationDto> this.getEntity();
-  }
-
-  static getDtos(n: number = 1): EducationDto[] {
-    return Array<EducationDto>(n).fill(this.getDto());
   }
 }

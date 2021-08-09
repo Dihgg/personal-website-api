@@ -5,7 +5,7 @@ import { AppService } from "./app.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { EducationModule } from "./education/education.module";
 import { getConnectionOptions } from "typeorm";
-import config from '../ormconfig';
+import ormConfig = require('./config/typeorm.config');
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import config from '../ormconfig';
     }),
     TypeOrmModule.forRootAsync({
       useFactory: async () =>
-        Object.assign(await getConnectionOptions(), config)
+        Object.assign(await getConnectionOptions(), ormConfig[0])
     }),
     EducationModule
   ],

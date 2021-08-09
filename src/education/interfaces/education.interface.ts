@@ -1,4 +1,4 @@
-import { EducationDto } from "../dto";
+import {Education} from "../entities";
 
 export interface IEducation {
   readonly id: number;
@@ -9,5 +9,5 @@ export interface IEducation {
 }
 
 export interface IEducationService {
-  findAll(): Promise<EducationDto[]>;
+  findAll(): Promise<Education[]>;
 }

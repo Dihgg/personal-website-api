@@ -1,10 +1,10 @@
 import { IEducationService } from "../interfaces";
-import { EducationDto } from "../dto";
 import { EducationStub } from "../testing";
+import {Education} from "../entities";
 
 export class EducationServiceStub implements IEducationService {
-  findAll(): Promise<EducationDto[]> {
-    return Promise.resolve([EducationStub.getDto()]);
+  findAll(): Promise<Education[]> {
+    return Promise.resolve(EducationStub.getEntities());
   }
 
 }

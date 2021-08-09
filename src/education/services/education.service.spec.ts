@@ -4,7 +4,6 @@ import { getRepositoryToken } from "@nestjs/typeorm";
 import { FactoryMock, MockType } from "../../testing";
 import { Education } from "../entities";
 import { Repository } from "typeorm";
-import { ConversionService } from "@fabio.formosa/metamorphosis-nest";
 import { EducationStub } from "../testing";
 
 describe("EducationService", () => {
@@ -16,9 +15,6 @@ describe("EducationService", () => {
       providers: [{
         provide: getRepositoryToken(Education),
         useFactory: FactoryMock.repositoryMockFactory
-      }, {
-        provide: ConversionService,
-        useFactory: FactoryMock.conversionMockFactory
       },
         EducationService
       ]
@@ -38,6 +34,6 @@ describe("EducationService", () => {
 
   it("Should return a list of education", async () => {
     const response = await service.findAll();
-    expect(response[0].id).toEqual(EducationStub.getDto().id);
+    expect(response[0].id).toEqual(EducationStub.getEntity().id);
   });
 });

@@ -19,11 +19,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "migration:run" : "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run",
-    "migration:revert" : "ts-node --transpile-only -r dotenv/config ./node_modules/typeorm/cli.js migration:revert"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/config/typeorm.config.ts",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run"
   },
   "dependencies": {
-    "@fabio.formosa/metamorphosis-nest": "^4.0.2",
     "@nestjs/common": "^7.6.15",
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.15",
@@ -31,6 +31,7 @@
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/swagger": "^4.8.0",
     "@nestjs/typeorm": "^7.1.5",
+    "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
